@@ -1,3 +1,3 @@
 # Template-Slide
 
--Criado Original : Otávio Santana - @otaviojava
+-Criador Original : Otávio Santana - @otaviojava
