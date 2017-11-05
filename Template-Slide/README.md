@@ -1,2 +1,3 @@
-# Palestras
-Conteudo apresentado em palestras da SouJava { Rio } / Java @ Rio
+# Template-Slide
+
+-Criado Original : Otávio Santana - @otaviojava
