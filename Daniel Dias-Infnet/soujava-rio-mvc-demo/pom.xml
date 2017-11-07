@@ -1,0 +1,154 @@
+<!--
+
+    The MIT License
+    Copyright © 2017 Daniel Dias
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.org.soujava</groupId>
+  <artifactId>soujava-rio-mvc-demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>MVC -Demo</name>
+  <description>Demo da SPEC de MVC (JSR-371)</description>
+
+  <organization>
+  	<name>SouJava { Rio }</name>
+  	<url>http://soujava-rio.github.io</url>
+  </organization>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
+		<version.payara.swarm>1.0.0</version.payara.swarm>
+	</properties>
+
+  <developers>
+        <developer>
+            <name>Daniel Dias</name>
+            <email>daniel.dias@soujava.org.br</email>
+            <organization>SouJava { Rio }</organization>
+        </developer>
+    </developers>
+    
+	<repositories>
+		<repository>
+			<id>sonatype-oss-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories> 
+
+	<dependencies>
+
+		<dependency>
+			<groupId>javax.mvc</groupId>
+			<artifactId>javax.mvc-api</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mvc-spec.ozark</groupId>
+			<artifactId>ozark-core</artifactId>
+			<version>1.0.0-m03-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+       	   	<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.8</version>
+  		</dependency>
+
+	</dependencies>
+
+	<modules>
+		<module>Payara-micro</module>
+		<module>Wildfly-Swarm</module>
+	</modules>
+
+<build>
+	<pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.wildfly.swarm</groupId>
+        		<artifactId>wildfly-swarm-plugin</artifactId>
+       			 <version>${version.wildfly.swarm}</version>
+       		</plugin>
+       		<plugin>
+				<groupId>fish.payara.maven.plugins</groupId>
+				<artifactId>payara-micro-maven-plugin</artifactId>
+				<version>${version.payara.swarm}</version>
+       		</plugin>
+		</plugins>
+	</pluginManagement>
+
+	<plugins>
+		<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					 <header>com/mycila/maven/plugin/license/templates/MIT.txt</header>
+					<properties>
+						<owner>Daniel Dias</owner>
+						<project.inceptionYear>2017</project.inceptionYear>
+					</properties>
+					<includes>
+                        <include>src/**/*.java</include>
+                        <exclude>src/**/*.jsp</exclude>
+                        <include>pom.xml</include>
+                    </includes>
+                     <excludes>
+                    	<exclude>src/main/webapp/recursos</exclude>
+                    </excludes>
+					<mapping>
+						<java>SLASHSTAR_STYLE</java>
+					</mapping>
+				</configuration>
+				<executions>
+					<execution>
+						<id>license-check</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+	</plugins>
+</build>
+
+</project>

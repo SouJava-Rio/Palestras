@@ -1,0 +1,112 @@
+<!--
+
+    The MIT License
+    Copyright © 2017 Daniel Dias
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>br.org.soujava</groupId>
+    <artifactId>soujava-rio-mvc-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  	<artifactId>Payara-micro</artifactId>
+  	<packaging>war</packaging>
+  	<name>Payara-Micro </name>
+  	<description>Demo utilizando Payara-Micro 5</description>
+
+<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate.ogm</groupId>
+				<artifactId>hibernate-ogm-bom</artifactId>
+				<version>5.1.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<finalName>demo</finalName>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>payara</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>fish.payara.maven.plugins</groupId>
+						<artifactId>payara-micro-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>start</goal>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<deployWar>true</deployWar>
+							<copySystemProperties>true</copySystemProperties>
+							<artifactItem>
+								<groupId>fish.payara.extras</groupId>
+								<artifactId>payara-micro</artifactId>
+								<version>5.0.0.Alpha2</version>
+							</artifactItem>
+							
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+	</profile>  
+</profiles>
+
+		<dependencies>
+			<dependency>
+				<groupId>org.mvc-spec.ozark</groupId>
+				<artifactId>ozark-jersey</artifactId>
+				<version>1.0.0-m03-SNAPSHOT</version>
+			</dependency>
+			
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.14</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate.ogm</groupId>
+			<artifactId>hibernate-ogm-mongodb</artifactId>
+		</dependency>
+		
+		<dependency>
+			<artifactId>hibernate-validator</artifactId>
+        	<groupId>org.hibernate</groupId>
+        	<version>5.4.1.Final</version>
+		</dependency>
+
+		</dependencies>
+</project>
