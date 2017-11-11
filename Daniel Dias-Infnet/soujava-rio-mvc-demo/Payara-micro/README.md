@@ -3,7 +3,7 @@ Para executar :
 
 mvn clean package payara-micro:start
 
-Necessida do MongoDB instalado na Maquina ou Via Docker.
+Precisa do MongoDB instalado na Maquina ou Via Docker.
 
 # Payara Micro URLs
 http://localhost:8080/demo
