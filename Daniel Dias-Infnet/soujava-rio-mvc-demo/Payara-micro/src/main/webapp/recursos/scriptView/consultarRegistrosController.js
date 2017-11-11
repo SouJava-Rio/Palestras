@@ -45,6 +45,7 @@ consultarRegistrosControllerApp.controller("consultarRegistrosController",functi
 				  
 				  response.success(function(data, status, headers, config) {
 
+						// $window.alert(data.mensagem);
 						 swal("sucesso", {
 						      icon: "success", 
 						    });
@@ -55,5 +56,24 @@ consultarRegistrosControllerApp.controller("consultarRegistrosController",functi
 			    swal("Seus Dados estão seguros!"); 
 			  }
 			});
+		 
+
+//		 if($window.confirm("Deseja realmente excluir esse registro?")){
+//
+//			 /*CHAMA O MÉTODO DO SPRING PARA EXCLUIR UM REGISTRO*/
+//			 var response = $http.delete("/RestFul-MongoDB/api/pessoa/deletar/" + codigo);
+//
+//			 response.success(function(data, status, headers, config) {
+//
+//				 $window.alert(data.mensagem);
+//				 /*RECARREGANDO OS REGISTROS CADASTRADOS*/
+//				 $scope.init();
+//			 });
+//
+//			 response.error(function(data, status, headers, config) {
+//				 /*SE OCORRER ERRO NÃO TRATADO IREMOS MOSTRA EM MENSAGEM*/
+//				 $window.alert(data);
+//			 });
+//		 }
 	 }
 });

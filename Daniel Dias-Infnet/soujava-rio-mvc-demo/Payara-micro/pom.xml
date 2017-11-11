@@ -49,39 +49,29 @@
 
 	<build>
 		<finalName>demo</finalName>
-	</build>
-
-	<profiles>
-		<profile>
-			<id>payara</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>fish.payara.maven.plugins</groupId>
-						<artifactId>payara-micro-maven-plugin</artifactId>
+			<plugins>
+				<plugin>
+					<groupId>fish.payara.maven.plugins</groupId>
+					<artifactId>payara-micro-maven-plugin</artifactId>
 						<executions>
 							<execution>
 								<goals>
 									<goal>start</goal>
-									<goal>stop</goal>
 								</goals>
 							</execution>
 						</executions>
 						<configuration>
-							<deployWar>true</deployWar>
-							<copySystemProperties>true</copySystemProperties>
+								<deployWar>true</deployWar>
+								<copySystemProperties>true</copySystemProperties>
 							<artifactItem>
-								<groupId>fish.payara.extras</groupId>
-								<artifactId>payara-micro</artifactId>
-								<version>5.0.0.Alpha2</version>
+									<groupId>fish.payara.extras</groupId>
+									<artifactId>payara-micro</artifactId>
+									<version>5.0.0.Alpha2</version>
 							</artifactItem>
-							
 						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-	</profile>  
-</profiles>
+				</plugin>
+			</plugins>
+	</build>
 
 		<dependencies>
 			<dependency>
@@ -90,23 +80,22 @@
 				<version>1.0.0-m03-SNAPSHOT</version>
 			</dependency>
 			
-		<dependency>
+			<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.16.14</version>
 			<scope>provided</scope>
 		</dependency>
 		
-		<dependency>
+			<dependency>
 			<groupId>org.hibernate.ogm</groupId>
 			<artifactId>hibernate-ogm-mongodb</artifactId>
 		</dependency>
 		
 		<dependency>
 			<artifactId>hibernate-validator</artifactId>
-        	<groupId>org.hibernate</groupId>
-        	<version>5.4.1.Final</version>
+        <groupId>org.hibernate</groupId>
+        <version>5.4.1.Final</version>
 		</dependency>
-
 		</dependencies>
 </project>

@@ -13,6 +13,7 @@ import lombok.Data;
  * daniel.dias@soujava.org.br
  * twitter:@danieldiasjava
  */
+
 @Named("mensagem")
 @Data
 @RedirectScoped

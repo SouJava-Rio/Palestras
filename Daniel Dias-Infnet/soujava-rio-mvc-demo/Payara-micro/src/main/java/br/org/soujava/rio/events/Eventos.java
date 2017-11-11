@@ -28,6 +28,13 @@ import javax.enterprise.event.Observes;
 import javax.mvc.event.AfterControllerEvent;
 import javax.mvc.event.BeforeControllerEvent;
 
+/**
+ * @author Daniel Dias
+ * github:Daniel-Dos
+ * daniel.dias@soujava.org.br
+ * twitter:@danieldiasjava
+ */
+
 @ApplicationScoped
 public class Eventos {
 

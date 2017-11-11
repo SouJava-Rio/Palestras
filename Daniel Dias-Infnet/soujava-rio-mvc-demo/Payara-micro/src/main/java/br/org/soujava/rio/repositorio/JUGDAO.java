@@ -35,6 +35,7 @@ import br.org.soujava.rio.model.JUG;
  * daniel.dias@soujava.org.br
  * twitter:@danieldiasjava
  **/
+
 public interface JUGDAO extends BaseDao<JUG, ObjectId> {
 
 	public List<JUG> findAll();

@@ -43,11 +43,18 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Data;
 
+/**
+ * @author Daniel Dias
+ * github:Daniel-Dos
+ * daniel.dias@soujava.org.br
+ * twitter:@danieldiasjava
+ */
+
 @Data
 @Entity
 @NamedQueries({
-	@NamedQuery(name="JUG.findAll", query="SELECT j from JUG j"),
-	@NamedQuery(name="JUG.findById", query="select j from JUG j where j.id =:id")
+	@NamedQuery(name="JUG.findAll", query="SELECT j FROM JUG j"),
+	@NamedQuery(name="JUG.findById", query="SELECT j FROM JUG j WHERE j.id =:id")
 })
 public class JUG implements Serializable {
 

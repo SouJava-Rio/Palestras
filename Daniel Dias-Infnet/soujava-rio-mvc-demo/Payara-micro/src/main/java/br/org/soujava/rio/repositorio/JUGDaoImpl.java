@@ -37,6 +37,7 @@ import br.org.soujava.rio.model.JUG;
  * daniel.dias@soujava.org.br
  * twitter:@danieldiasjava
  */
+
 public class JUGDaoImpl implements JUGDAO {
 
 	@Inject

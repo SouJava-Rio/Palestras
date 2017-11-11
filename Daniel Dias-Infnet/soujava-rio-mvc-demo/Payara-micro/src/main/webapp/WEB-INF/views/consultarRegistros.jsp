@@ -37,6 +37,7 @@
 <script type="text/javascript" src="../../recursos/scriptView/consultarRegistrosController.js"></script>
 <script src="../../recursos/angular/sweetalert.min.js"></script>
 
+
 </head>
 <body>
 

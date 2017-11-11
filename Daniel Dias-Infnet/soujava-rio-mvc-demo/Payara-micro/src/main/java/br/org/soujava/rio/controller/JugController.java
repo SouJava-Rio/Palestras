@@ -53,6 +53,13 @@ import br.org.soujava.rio.model.JUG;
 import br.org.soujava.rio.model.Mensagem;
 import br.org.soujava.rio.repositorio.JugServico;
 
+/**
+ * @author Daniel Dias
+ * github:Daniel-Dos
+ * daniel.dias@soujava.org.br
+ * twitter:@danieldiasjava
+ */
+
 @Path("jug")
 public class JugController {
 
@@ -73,11 +80,7 @@ public class JugController {
 	@Path("formulario")
 	@View("adicionarRegistros.jsp")
 	public void regitrar() {
-		List<String> paises = Arrays.stream(Locale.getISOCountries())
-				.map(iso -> getCountryName(iso))
-				.sorted((a, b) -> a.compareTo(b))
-				.collect(Collectors.toList());
-			models.put("paises", paises);
+		models.put("paises", paises());
 	}
 	
 	@GET
@@ -85,13 +88,9 @@ public class JugController {
 	@Path("editarRegistro/{id}")
 	@View("editarRegistros.jsp")
 	public void atualizar(@PathParam("id") ObjectId id) {
-		models.put("update", jugServico.getJugPorId(id));
 
-		List<String> paises = Arrays.stream(Locale.getISOCountries())
-				.map(iso -> getCountryName(iso))
-				.sorted((a, b) -> a.compareTo(b))
-				.collect(Collectors.toList());
-			models.put("paises", paises);
+		models.put("update", jugServico.getJugPorId(id));
+		models.put("paises", paises());
 	}
 
 	@POST
@@ -104,11 +103,12 @@ public class JugController {
 					.map(ValidationError::getMessage)
 					.collect(Collectors.joining("<br>"));
 			models.put("errors", errors);
+			models.put("paises", paises());
 			return "editarRegistros.jsp";
 		}
 
 		jugServico.atualizaJug(jug);
-		mensagem.setMensagem("Sucesso ao editar.");
+		mensagem.setMensagem("A " + jug.getNome() + " foi alterada com Sucesso ! ");
 		return "redirect:jug/mostrar";
     }
 	
@@ -122,12 +122,12 @@ public class JugController {
 					.map(ValidationError::getMessage)
 					.collect(Collectors.joining("<br>"));
 			models.put("errors", errors);
+			models.put("paises", paises());
 			return "adicionarRegistros.jsp";
 		}
 
 		jugServico.adicionaJug(jug);
-		System.out.println("Sucesso");
-		mensagem.setMensagem("Sucesso ao cadastrar.");
+		mensagem.setMensagem("A " + jug.getNome() + " foi cadastrada com Sucesso ! ");
 		return "redirect:jug/mostrar";
 	}
 
@@ -137,6 +137,8 @@ public class JugController {
 	@View("consultarRegistros.jsp")
 	public void consultar() {
 	}
+
+	// Classes HIBRIDAS
 
 	@GET
 	@Path("listar")
@@ -153,5 +155,14 @@ public class JugController {
 
 	private String getCountryName(String iso) {
 		return new Locale(iso, iso).getDisplayCountry(Locale.ENGLISH);
+	}
+
+	private List<String> paises() {
+
+		List<String> paises = Arrays.stream(Locale.getISOCountries())
+				.map(iso -> getCountryName(iso))
+				.sorted((a, b) -> a.compareTo(b))
+				.collect(Collectors.toList());
+		return paises;
 	}
 }

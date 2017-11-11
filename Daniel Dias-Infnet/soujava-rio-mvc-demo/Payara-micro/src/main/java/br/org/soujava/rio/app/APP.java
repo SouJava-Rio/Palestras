@@ -33,6 +33,13 @@ import javax.ws.rs.core.Application;
 import br.org.soujava.rio.controller.HomeController;
 import br.org.soujava.rio.controller.JugController;
 
+/**
+ * @author Daniel Dias
+ * github:Daniel-Dos
+ * daniel.dias@soujava.org.br
+ * twitter:@danieldiasjava
+ */
+
 @ApplicationPath("/app")
 public class APP extends Application {
 

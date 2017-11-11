@@ -33,6 +33,7 @@ import javax.ws.rs.Path;
  * daniel.dias@soujava.org.br
  * twitter:@danieldiasjava
  */
+
 @Controller
 @Path("/")
 public class HomeController {

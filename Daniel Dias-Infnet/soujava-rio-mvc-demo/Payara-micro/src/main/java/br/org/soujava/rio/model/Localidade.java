@@ -32,6 +32,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import lombok.Data;
 
+/**
+ * @author Daniel Dias
+ * github:Daniel-Dos
+ * daniel.dias@soujava.org.br
+ * twitter:@danieldiasjava
+ */
+
 @Data
 @Embeddable
 public class Localidade implements Serializable {

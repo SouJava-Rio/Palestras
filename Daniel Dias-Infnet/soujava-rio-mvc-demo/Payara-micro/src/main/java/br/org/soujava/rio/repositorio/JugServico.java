@@ -15,6 +15,7 @@ import br.org.soujava.rio.model.JUG;
  * daniel.dias@soujava.org.br
  * twitter:@danieldiasjava
  */
+
 @Transactional
 public class JugServico {
 
