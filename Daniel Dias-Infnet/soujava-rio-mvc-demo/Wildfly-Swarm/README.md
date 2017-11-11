@@ -1,7 +1,7 @@
 # Wildfly-Swarm
 Para executar :
 
-mvn clean package -P wildfly wildfly-swarm:run
+mvn clean package wildfly-swarm:run
 
 # Wildfly Swarm URLs
 http://localhost:8080
