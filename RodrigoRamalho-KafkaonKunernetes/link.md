@@ -1,4 +1,4 @@
-#SLIDE 
+# SLIDE 
 
 https://redhat.slides.com/rdasilva/kafka-on-kubernetes?token=MVJKQBcV#/
 
